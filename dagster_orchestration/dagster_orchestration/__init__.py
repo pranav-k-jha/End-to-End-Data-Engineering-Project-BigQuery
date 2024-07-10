@@ -1,14 +1,13 @@
-import os
-from dagster_dbt import DbtCliClientResource
-from dagster_dbt import load_assets_from_dbt_project
+from dagster import Definitions, AssetSelection, ScheduleDefinition, load_assets_from_modules, define_asset_job
 
-resources = {
-    "dbt": DbtCliClientResource(
-        project_dir=os.getenv("DBT_PROJECT_DIR"),
-        profiles_dir=os.getenv("DBT_PROFILES_DIR"),
-    ),
-}
+from .assets import resources
 
-dbt_assets = load_assets_from_dbt_project(
-    project_dir=os.getenv("DBT_PROJECT_DIR"), profiles_dir=os.getenv("DBT_PROFILES_DIR"), key_prefix=["transformed_data"]
+big_star_job = define_asset_job("big_star_job", selection=AssetSelection.all())
+
+big_star_schedule = ScheduleDefinition(
+    job=big_star_job,
+    cron_schedule="0 * * * *",  # every hour
 )
+
+defs = Definitions(assets=load_assets_from_modules(
+    [assets]), resources=resources, jobs=[big_star_job], schedules=[big_star_schedule])
