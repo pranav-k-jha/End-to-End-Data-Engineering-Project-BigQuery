@@ -8,18 +8,6 @@ This repository contains the completed project for the LinkedIn Learning course 
 
 The world of data engineering is constantly evolving, with new tools and technologies emerging regularly. Building an effective analytics platform can be challenging, especially if you are unfamiliar with all the available tools. This course, led by Thalia Barrera, guides data professionals through the implementation of an end-to-end data engineering project using modern open-source tools. The course covers best practices in data modeling, testing, documentation, and version control, demonstrating how to efficiently extract, load, and transform data into a unified, analytics-ready format. Through practical examples, Thalia shows how to construct a robust data pipeline for a fictional ecommerce company and implement best practices in data engineering.
 
-## Instructions
-
-This repository consists of two branches:
-- `main` holds the initial state of the project.
-- `finished` holds the final state.
-
-You can switch between branches using the branch dropdown menu on GitHub or by appending `/tree/BRANCH_NAME` to the URL.
-
-## Branches
-
-You will work in the `main` branch throughout the course. You can check out the `finished` branch at any time to see how the completed project looks.
-
 ## Prerequisites
 
 Ensure you have Python 3 installed. If not, download and install it from the official [Python website](https://www.python.org/downloads/).
